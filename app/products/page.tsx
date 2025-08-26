@@ -7,13 +7,14 @@ const page = async ({ products }: any) => {
 
   return (
     <div className="mt-24 h-[1500px] w-[500px] bg-red-400">
-      <button
+      {/* <button
+      
         onClick={() => {
           console.log("first");
         }}
       >
         next
-      </button>
+      </button> */}
     </div>
   );
 };
