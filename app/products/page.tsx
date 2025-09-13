@@ -1,20 +1,14 @@
 import axios from "axios";
 import React from "react";
+import Product from "../_componenets/Product";
 
-const page = async ({ products }: any) => {
+const page = async () => {
   const res = await axios.get("https://fakestoreapi.com/products");
-  console.log(res);
+  
 
   return (
-    <div className="mt-24 h-[1500px] w-[500px] bg-red-400">
-      {/* <button
-      
-        onClick={() => {
-          console.log("first");
-        }}
-      >
-        next
-      </button> */}
+    <div className="w-full">
+      <Product data={res?.data} />
     </div>
   );
 };
