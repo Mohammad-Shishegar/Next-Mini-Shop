@@ -54,7 +54,7 @@ const updateOneUser = async (filter:object, data:object) => {
   return user;
 };
 
-const updateAllUsers = async (filter:object, data:object) => {
+const updateAllUsers  = async (filter:object, data:object) => {
   await connectToDatabase();
   const userDoc = await User.updateMany(filter, data,);
   const user = changeData(userDoc)
