@@ -6,11 +6,12 @@ import { User } from "@/app/_componenets/_lib/mongoModel/user";
 
 const createUser = async (name:string, email:string) => {
   await connectToDatabase();
-
-
   //   const userDoc = await User.create({ name, email });
   const userDoc = await User.insertOne({ name, email });
   // const a = await User.insertOne({name:"akbar" ,email:"akbari@gmail.com"})
+  //the diffrence between create and insert is munber of data that we want to add to data base 
+  // if one by one its better to use to create and if we have many data for set in data base 
+  // that better to use insert
   const user = JSON.parse(JSON.stringify(userDoc));
   return user;
 };
