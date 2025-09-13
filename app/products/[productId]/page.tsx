@@ -5,7 +5,6 @@ import { PiCurrencyDollarDuotone } from "react-icons/pi";
 import { RiStarSmileFill } from "react-icons/ri";
 
 const page = ({ params }: any) => {
-
   async function fetchData(productId: string) {
     const response = await axios.get(
       `https://fakestoreapi.com/products/${productId}`
@@ -34,13 +33,13 @@ const page = ({ params }: any) => {
             {data?.price}
           </p>
           <div className="flex items-center gap-x-2 mt-5">
-                    <RiStarSmileFill className="text-yellow-400" size={23} />
-                    <span className="text-black text-[20px]">4.5</span>
-                  </div>
+            <RiStarSmileFill className="text-yellow-400" size={23} />
+            <span className="text-black text-[20px]">4.5</span>
+          </div>
           <p className="mt-3 px-3 text-[18px] text-slate-400">
             {data?.description}
           </p>
-         <AddProduct item={data}/>
+          <AddProduct item={data} />
         </div>
       </div>
     </div>
