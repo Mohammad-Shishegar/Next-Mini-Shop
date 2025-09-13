@@ -1,0 +1,67 @@
+// app/actions/userActions.js
+"use server";
+
+import { connectToDatabase } from "@/app/_componenets/_lib/mongoDb";
+import { User } from "@/app/_componenets/_lib/mongoModel/user";
+
+const createUser = async (name:string, email:string) => {
+  await connectToDatabase();
+
+
+  //   const userDoc = await User.create({ name, email });
+  const userDoc = await User.insertOne({ name, email });
+  // const a = await User.insertOne({name:"akbar" ,email:"akbari@gmail.com"})
+  const user = JSON.parse(JSON.stringify(userDoc));
+  return user;
+};
+
+const getOneUser = async () => {
+  await connectToDatabase;
+  const userDoc = await User.findOne({ email: "aa@gmail.com" });
+  const user = JSON.parse(JSON.stringify(userDoc));
+  return user;
+};
+
+const getAllUser = async () => {
+  await connectToDatabase;
+  const userDoc = await User.find();
+  const user = JSON.parse(JSON.stringify(userDoc));
+  return user;
+};
+const DeleteAllUser = async () => {
+  await connectToDatabase;
+  const userDoc = await User.deleteMany();
+  const user = JSON.parse(JSON.stringify(userDoc));
+  return user;
+};
+
+const DeleteOneUser = async (filter:object) => {
+  await connectToDatabase;
+  const userDoc = await User.deleteOne(filter);
+  const user = JSON.parse(JSON.stringify(userDoc));
+  return user;
+};
+
+const updateOneUser = async (filter:object, data:object) => {
+  await connectToDatabase;
+  const userDoc = await User.findOneAndUpdate(filter, data, { new: true });
+  const user = JSON.parse(JSON.stringify(userDoc));
+  return user;
+};
+
+const updateAllUsers = async (filter:object, data:object) => {
+  await connectToDatabase;
+  const userDoc = await User.updateMany(filter, data,);
+  const user = JSON.parse(JSON.stringify(userDoc));
+  return user;
+};
+
+export {
+  getOneUser,
+  createUser,
+  getAllUser,
+  DeleteAllUser,
+  DeleteOneUser,
+  updateOneUser,
+  updateAllUsers
+};

@@ -1,10 +1,9 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { ReactNode } from "react";
-import "./globals.css";
 import { ProductProvider } from "./_componenets/Context/ProductProvider";
 import Header from "./_componenets/Header";
 import { ToastContainer } from "react-toastify";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Mini Shop",
